@@ -26,6 +26,30 @@ The form uses the rule's outputs to:
 
 ## Getting started
 
+### Prerequisites
+
+Before running the demo, complete the following steps on the [Nodora platform](https://app.nodora.net):
+
+1. **Create an account**
+
+2. **Create a ruleset** named `Checkout`.
+
+3. **Add the `FreeShipping` rule** to that ruleset:
+
+   ```
+   rule FreeShipping {
+     out threshold = 100
+     out eligible_countries = ["us"]
+     out eligible = input.country in eligible_countries && input.total >= threshold
+   }
+   ```
+
+4. **Compile and deploy** the ruleset to the **production** environment.
+
+5. **Generate an API key** from your account settings and copy it — you will need it in the next step.
+
+### Run the demo
+
 1. Install dependencies:
 
 ```bash
